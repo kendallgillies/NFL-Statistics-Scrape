@@ -11,10 +11,9 @@ This code gathers some of the statistics provided by the NFL on their website fo
 3. Website_to_CSV_Functions (Folder)
     1. Basic_Stats_Class.py
     2. Career_Stats_Class.py
-    3. Career_Stats_Table_Headers_And_File_Names.py
-    4. Game_Logs_Class.py
-    5. Game_Logs_Table_Headers_And_File_Names.py
-    6. Obtain_Players_from_Website.py
+    3. Game_Logs_Class.py
+    4. NFL_Glossary.py
+    5. Obtain_Players_from_Website.py
 
 ### Files Explanation
 1. The base file and player class file are both needed to run any of the other parts of the code.  
@@ -32,7 +31,8 @@ This code gathers some of the statistics provided by the NFL on their website fo
     10.	High School Attended
     11.	High School Location
     12.	Experience
-4. The second main group of statistics gathered for each player are their career statistics and can be obtain through the career statistics class and the file containing the career statistics table headers.  While each player has a main position they play, they will have statistics in other areas; therefore, the career statistics are divided into statistics types.  The statistics are then stored in CSV files based on statistic type along with the player name, URL identifier and position (if available).  The following are the career statistics types and accompanying CSV file names:
+4. NFL_Glossary.py is used to translate the NFL shorthand found in the table headers.  It is needed for both Career_Stats_Class.py and Game_Logs_Class.py.
+5. The second main group of statistics gathered for each player are their career statistics and can be obtain through the career statistics class.  While each player has a main position they play, they will have statistics in other areas; therefore, the career statistics are divided into statistics types.  The statistics are then stored in CSV files based on statistic type along with the player name, URL identifier and position (if available).  The following are the career statistics types and accompanying CSV file names:
     1.	Defensive Statistics – Career_Stats_Defensive.csv
     2.	Field Goal Kickers - Career_Stats_Field_Goal_Kickers.csv
     3.	Fumbles - Career_Stats_Fumbles.csv
@@ -44,7 +44,7 @@ This code gathers some of the statistics provided by the NFL on their website fo
     9.	Punting - Career_Stats_Punting.csv
     10.	Receiving - Career_Stats_Receiving.csv
     11.	Rushing - Career_Stats_Rushing.csv
-5. The final group of statistics is the game logs for each player and can be obtained through the game logs class and the file containing the game log table headers.  The game logs are stored by position and have the player name, URL identifier and position (if available).  The following are the game log types and accompanying CSV file names:
+6. The final group of statistics is the game logs for each player and can be obtained through the game logs class.  The game logs are stored by position and have the player name, URL identifier and position (if available).  The following are the game log types and accompanying CSV file names:
     1.	Quarterback – Game_Logs_Quarterback.csv
     2.	Running back – Game_Logs_Runningback.csv
     3.	Wide Receiver and Tight End – Game_Logs_Wide_Receiver_and_Tight_End.csv
