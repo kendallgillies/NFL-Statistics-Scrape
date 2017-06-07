@@ -1,6 +1,7 @@
-import bs4, requests, os.path
+import bs4, os.path
 from Player_Class import *
 from Website_to_CSV_Functions.NFL_Glossary import *
+from Website_to_CSV_Functions.Functions_Needed_For_All_Stats import *
 
 class Game_Logs(Player):
     def __init__(self,player):
@@ -82,16 +83,14 @@ class Game_Logs(Player):
        
     def Get_and_Store_Game_Logs(self):
         url = 'http://www.nfl.com/player/'+self.player_id+'/gamelogs'
-        res = requests.get(url)
-        soup = bs4.BeautifulSoup(res.text,'lxml')    
+        soup = Get_HTML_Document(url,{})  
 
         self.Get_Player_Number_and_Position()
         
         game_years = self.Get_Game_Years(soup)
         Stats = []
         for year in game_years:
-            res = requests.get(url, params = {'season':year})
-            soup = bs4.BeautifulSoup(res.text,'lxml')    
+            soup = Get_HTML_Document(url,{'season':year})    
             for table in soup.find_all('table'):
                 headers = [td.text for td in table.find('tr').find_all('td')]
                 season = headers[0]
