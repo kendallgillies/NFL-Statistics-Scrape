@@ -1,5 +1,5 @@
-import pandas as pd
-import csv, requests, bs4, re
+import csv, bs4, re
+from Website_to_CSV_Functions.Functions_Needed_For_All_Stats import *
 
 class Player(object):
     def __init__(self):
@@ -32,8 +32,7 @@ class Player(object):
 
     def Get_Player_Number_and_Position(self):
         profile_url = 'http://www.nfl.com/player/'+self.player_id+'/profile'
-        res = requests.get(profile_url)
-        soup = bs4.BeautifulSoup(res.text,'lxml')  
+        soup = Get_HTML_Document(profile_url,{})
         for player_num in soup.find_all('span',class_ = 'player-number'): 
             try:
                 player_num = player_num.text
