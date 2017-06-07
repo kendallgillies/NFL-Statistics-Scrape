@@ -1,5 +1,6 @@
-import bs4, requests, re, os.path, string
+import bs4, re, os.path, string
 from Player_Class import *
+from Website_to_CSV_Functions.Functions_Needed_For_All_Stats import *
 
 def Obtain_Number_of_Pages(soup,initial_url):
     Pages = [1]
@@ -60,8 +61,7 @@ def Obtain_Players_And_Status(initial_url,url_parameters,Max_Page,Players,soup,f
     for page_number in range(1,Max_Page+1):
         # NFL website parameter name for page number
         url_parameters['d-447263-p'] = page_number
-        res = requests.get(initial_url, params = url_parameters)
-        soup = bs4.BeautifulSoup(res.text,'lxml')
+        soup = Get_HTML_Document(initial_url,url_parameters)
         
         for table in soup.find_all('table', id = 'result'):
             td_tags = table.find_all('td')
@@ -76,15 +76,13 @@ def Get_and_Store_All_Players_Names_and_Ids(filename):
     PlayerType = ['current','historical']
     for playertype in PlayerType:
         for Last_Name_Beginning in list(string.ascii_uppercase):
+            print('Getting %s players whose last name starts with %s' % (playertype,
+                                                             Last_Name_Beginning))
+            
             url_parameters = {'category':'lastName','filter':Last_Name_Beginning,
                           'playerType':playertype}
             initial_url = 'http://www.nfl.com/players/search'
-        
-            response = requests.get(initial_url, params = url_parameters)
-            
-            print('Getting %s players whose last name starts with %s' % (playertype,
-                                                             Last_Name_Beginning))
-            soup = bs4.BeautifulSoup(response.text,'lxml')
+            soup = Get_HTML_Document(initial_url,url_parameters)
     
             Max_Page = Obtain_Number_of_Pages(soup,initial_url)
     
