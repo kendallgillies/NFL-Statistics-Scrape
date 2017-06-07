@@ -1,5 +1,6 @@
-import bs4, requests, re, os.path
+import bs4, re, os.path
 from Player_Class import *
+from Website_to_CSV_Functions.Functions_Needed_For_All_Stats import *
 
 class Player_Basic_Stats(Player):
     def __init__(self,player):
@@ -92,8 +93,7 @@ class Player_Basic_Stats(Player):
             self.New_CSV_File(filename,Basic_Stats_Headers)        
             
         profile_url = 'http://www.nfl.com/player/'+self.player_id+'/profile'
-        res = requests.get(profile_url)
-        soup = bs4.BeautifulSoup(res.text,'lxml')    
+        soup = Get_HTML_Document(profile_url,{})   
     
         counter = 1
         fn_name = None
