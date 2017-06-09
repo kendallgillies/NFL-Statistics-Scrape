@@ -11,12 +11,13 @@ This code gathers some of the statistics provided by the NFL on their website fo
 3. Website_to_CSV_Functions (Folder)
     1. Basic_Stats_Class.py
     2. Career_Stats_Class.py
-    3. Game_Logs_Class.py
-    4. NFL_Glossary.py
-    5. Obtain_Players_from_Website.py
+    3. Functions_Needed_For_All_Stats.py
+    4. Game_Logs_Class.py
+    5. NFL_Glossary.py
+    6. Obtain_Players_from_Website.py
 
 ### Files Explanation
-1. The base file and player class file are both needed to run any of the other parts of the code.  
+1. The base file, the player class file and Functions_Needed_For_All_Stats file are all needed to run any of the other parts of the code.  
 2. The file Obtain_Players_from_Website is used to gather the player names and URL identifiers from the NFL website.  For retired players the easiest place to gather the years they played is on the webpage used to gather their names and identifiers, so it is also taken and stored at this point in time.  For active players the years played are not as easily accessible, but can be gathered at a later time from the basic statistics, career stats or game logs.
 3. The first main group of statistics is the basic statistics provided for each player and can be obtained through the basic statistics class.  The variables are stored in a CSV file titled Basic_Stats.csv along with the player’s name and URL identifier.  The variables pulled for each player are as follows:
     1.	Number
