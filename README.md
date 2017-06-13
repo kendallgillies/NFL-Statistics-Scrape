@@ -1,5 +1,5 @@
 # NFL-Statistics-Scrape
-This code gathers basic statistics, career statistics and game logs provided by the NFL on their website for all players past and present. 
+This code gathers basic statistics, career statistics and game logs provided by the NFL on their website for all players past and present.  The dataset can be found at https://www.kaggle.com/kendallgillies/nflstatistics.
 
 ## Summary
 This code gathers some of the statistics provided by the NFL on their website for all players past and present.  Given not all players are assigned a position, the code will use the “find player by name” page to first scrape all of the player’s names, unique url identifier and years played (if retired).  The code then scrapes three main groups of statistics (basic statistics, career statistics and game logs) independently of each other and stores the data in various CSV files.  
