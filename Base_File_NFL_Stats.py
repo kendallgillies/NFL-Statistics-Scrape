@@ -14,7 +14,7 @@ def Get_Players_and_Ids_From_CSV_File(filename):
 
 # Only one should be executed based on if you want to get the player names and
 # ids from a csv file or from the website.
-Players = Get_and_Store_All_Players_Names_and_Ids('Player_Ids_Urls.csv')
+Players = get_and_store_all_players_names_and_ids('Player_Ids_Urls.csv')
 #Players = Get_Players_and_Ids_From_CSV_File('Player_Ids_Urls.csv')
 
 
@@ -26,7 +26,7 @@ for player_id in Players:
     if count % 100 == 0:
         print('Processed basic stats for %d out of %d players' % (count,len(Players)))
     count+=1
-    
+
 # Get Career Stats
 count = 1
 for player_id in Players:
